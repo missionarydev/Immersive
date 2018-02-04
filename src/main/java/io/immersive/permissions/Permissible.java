@@ -1,4 +1,4 @@
-package io.immersive.game.permissions;
+package io.immersive.permissions;
 
 import io.immersive.utils.Tristate;
 import lombok.Getter;

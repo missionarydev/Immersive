@@ -6,18 +6,16 @@ import lombok.NonNull;
 import java.util.logging.Logger;
 
 public abstract class Plugin {
-    private PluginManager manager;
-    private ClassLoader classLoader;
     private boolean instated;
     private boolean enabled;
+    private ClassLoader classLoader;
     private PluginInfo info;
     private PluginLogger logger;
 
     public Plugin() {
-        this.manager = null;
-        this.classLoader = null;
         this.instated = false;
         this.enabled = false;
+        this.classLoader = null;
         this.info = null;
 
         final ClassLoader loader = this.getClass().getClassLoader();
@@ -28,20 +26,12 @@ public abstract class Plugin {
         ((PluginClassLoader) loader).instate(this);
     }
 
-    public final PluginManager getManager() {
-        return this.manager;
-    }
-
     public final ClassLoader getClassLoader() {
         return this.classLoader;
     }
 
     public final boolean isInstated() {
         return this.instated;
-    }
-
-    protected final void setInstated(@NonNull final boolean instated) {
-        this.instated = instated;
     }
 
     public final boolean isEnabled() {
@@ -69,11 +59,10 @@ public abstract class Plugin {
         return this.logger;
     }
 
-    protected final void instate(@NonNull final PluginManager loader, @NonNull final ClassLoader classLoader, @NonNull final PluginInfo info) {
-        this.manager = manager;
+    protected final void instate(@NonNull final ClassLoader classLoader, @NonNull final PluginInfo info) {
+        this.instated = true;
         this.classLoader = classLoader;
         this.info = info;
-
         this.logger = new PluginLogger(this);
     }
 

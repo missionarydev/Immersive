@@ -2,7 +2,7 @@ package io.immersive.server;
 
 import io.immersive.Immersive;
 import io.immersive.commands.Sender;
-import io.immersive.game.permissions.Permission;
+import io.immersive.permissions.Permission;
 import lombok.NonNull;
 
 import java.util.List;

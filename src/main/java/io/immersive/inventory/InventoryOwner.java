@@ -1,4 +1,4 @@
-package io.immersive.game.inventory;
+package io.immersive.inventory;
 
 public interface InventoryOwner {
 

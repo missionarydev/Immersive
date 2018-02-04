@@ -8,7 +8,7 @@ public interface Sender {
      * Gets the name of the sender.
      * @return Sender's Name
      * @see io.immersive.server.Console
-     * @see io.immersive.game.entity.Player
+     * @see io.immersive.entity.Player
      */
     String getName();
 
@@ -28,8 +28,8 @@ public interface Sender {
      * Checks if the sender has a permission via it's node.
      * @param node Permission Node
      * @return {@code true} or {@code false}
-     * @see io.immersive.game.permissions.Permission
-     * @see io.immersive.game.permissions.Permissible
+     * @see io.immersive.permissions.Permission
+     * @see io.immersive.permissions.Permissible
      */
     boolean hasPermission(final String node);
 
@@ -37,9 +37,9 @@ public interface Sender {
      * Checks if the sender has a permission.
      * @param permission Permission Object
      * @return {@code true} or {@code false}
-     * @see io.immersive.game.permissions.Permission
-     * @see io.immersive.game.permissions.Permissible
+     * @see io.immersive.permissions.Permission
+     * @see io.immersive.permissions.Permissible
      */
-    boolean hasPermission(final io.immersive.game.permissions.Permission permission);
+    boolean hasPermission(final io.immersive.permissions.Permission permission);
 
 }

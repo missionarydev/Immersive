@@ -1,6 +1,6 @@
-package io.immersive.game.world.position;
+package io.immersive.world.position;
 
-import io.immersive.game.world.World;
+import io.immersive.world.World;
 import lombok.Getter;
 import lombok.NonNull;
 

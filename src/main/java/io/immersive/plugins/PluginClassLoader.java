@@ -129,7 +129,6 @@ public class PluginClassLoader extends URLClassLoader {
         if(plugin.isInstated())
             throw new IllegalArgumentException("[Plugin] Plugin " + plugin.getInfo().name() + " has already been instated.");
 
-        plugin.setInstated(true);
-        plugin.instate(this.getManager(), this, this.getInfo());
+        plugin.instate(this, this.getInfo());
     }
 }

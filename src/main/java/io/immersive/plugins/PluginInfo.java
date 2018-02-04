@@ -13,6 +13,6 @@ public @interface PluginInfo {
 
     String version();
 
-    String author();
+    String author() default "";
 
 }

@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PluginManager {
-    @Getter private final HashMap<String, Plugin> plugins;
+    @Getter private final List<Plugin> plugins;
     @Getter private final Pattern pattern;
     @Getter private final ConcurrentHashMap<String, Class<?>> classes;
     @Getter private final Map<String, PluginClassLoader> loaders;
 
     public PluginManager() {
-        this.plugins = new HashMap<>();
+        this.plugins = new ArrayList<>();
         this.pattern = Pattern.compile("\\.jar$");
         this.classes = new ConcurrentHashMap<>();
         this.loaders = new LinkedHashMap<>();
@@ -30,11 +30,11 @@ public class PluginManager {
     }
 
     public void enablePlugins() {
-        this.getPlugins().values().forEach(this::enablePlugin);
+        this.getPlugins().forEach(this::enablePlugin);
     }
 
     public void disablePlugins() {
-        this.getPlugins().values().forEach(this::disablePlugin);
+        this.getPlugins().forEach(this::disablePlugin);
     }
 
     private void loadPlugins() {
@@ -69,7 +69,7 @@ public class PluginManager {
         }
 
         if(plugin != null) {
-            this.getPlugins().put(plugin.getInfo().name(), plugin);
+            this.getPlugins().add(plugin);
             Immersive.getLogger().info("[" + plugin.getInfo().name() + "] Loading " + plugin.getInfo().name() + " (" + plugin.getInfo().version() + ")");
             plugin.onLoad();
         }
@@ -112,7 +112,7 @@ public class PluginManager {
     }
 
     public Plugin getPlugin(@NonNull final String name) {
-        return this.getPlugins().get(name);
+        return this.getPlugins().stream().filter(plugin -> plugin.getInfo().name().equalsIgnoreCase(name)).findFirst().orElse(null);
     }
 
     protected Class<?> getClassByName(@NonNull final String name) {

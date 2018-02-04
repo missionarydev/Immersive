@@ -1,15 +1,15 @@
-package io.immersive.game.entity;
+package io.immersive.entity;
 
 import io.immersive.commands.Sender;
 import io.immersive.event.events.player.PlayerTeleportEvent;
-import io.immersive.game.GameMode;
-import io.immersive.game.inventory.InventoryOwner;
-import io.immersive.game.inventory.PlayerInventory;
-import io.immersive.game.permissions.IPermissible;
-import io.immersive.game.permissions.Permissible;
-import io.immersive.game.permissions.Permission;
-import io.immersive.game.world.World;
-import io.immersive.game.world.position.Position;
+import io.immersive.core.GameMode;
+import io.immersive.inventory.InventoryOwner;
+import io.immersive.inventory.PlayerInventory;
+import io.immersive.permissions.IPermissible;
+import io.immersive.permissions.Permissible;
+import io.immersive.permissions.Permission;
+import io.immersive.world.World;
+import io.immersive.world.position.Position;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;

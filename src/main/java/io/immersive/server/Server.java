@@ -3,7 +3,7 @@ package io.immersive.server;
 import io.immersive.Immersive;
 import io.immersive.commands.CommandManager;
 import io.immersive.event.EventManager;
-import io.immersive.game.entity.Player;
+import io.immersive.entity.Player;
 import io.immersive.plugins.PluginManager;
 import io.immersive.utils.Directories;
 import io.immersive.utils.PerformanceUtils;

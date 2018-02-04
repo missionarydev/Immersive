@@ -1,4 +1,4 @@
-package io.immersive.game.world.position;
+package io.immersive.world.position;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package io.immersive.event.events.player;
 
 import io.immersive.event.extra.CancellableEvent;
-import io.immersive.game.entity.Player;
+import io.immersive.entity.Player;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;

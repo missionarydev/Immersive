@@ -1,4 +1,4 @@
-package io.immersive.game;
+package io.immersive.core;
 
 import lombok.Getter;
 import lombok.NonNull;

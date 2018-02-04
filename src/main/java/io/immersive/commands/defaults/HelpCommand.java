@@ -15,7 +15,8 @@ public class HelpCommand extends Command {
 
     public void onCommand(final Sender sender, final String label, final List<String> args) {
         sender.sendMessage("Help:");
-        for(Command command : Immersive.getServer().getCommandManager().getCommands()) {
+
+        Immersive.getServer().getCommandManager().getCommands().forEach(command -> {
             final StringBuilder sb = new StringBuilder();
             final String aliases;
 
@@ -38,6 +39,6 @@ public class HelpCommand extends Command {
             }
 
             sender.sendMessage("  * /" + command.getLabel() + " - " + command.getDescription() + aliases);
-        }
+        });
     }
 }

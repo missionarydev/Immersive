@@ -1,6 +1,6 @@
-package io.immersive.game.inventory;
+package io.immersive.inventory;
 
-import io.immersive.game.entity.Player;
+import io.immersive.entity.Player;
 import lombok.Getter;
 import lombok.NonNull;
 

@@ -1,6 +1,6 @@
 package io.immersive.commands;
 
-import io.immersive.game.entity.Player;
+import io.immersive.entity.Player;
 import io.immersive.server.Console;
 import lombok.Getter;
 import lombok.NonNull;

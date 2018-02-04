@@ -1,6 +1,6 @@
 package io.immersive.utils;
 
-import io.immersive.game.Color;
+import io.immersive.core.Color;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.SneakyThrows;

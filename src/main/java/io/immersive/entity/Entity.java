@@ -1,6 +1,6 @@
-package io.immersive.game.entity;
+package io.immersive.entity;
 
-import io.immersive.game.world.position.Position;
+import io.immersive.world.position.Position;
 
 public interface Entity {
 
