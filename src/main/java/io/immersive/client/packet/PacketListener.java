@@ -1,4 +1,4 @@
-package io.immersive.client.packets;
+package io.immersive.client.packet;
 
 public interface PacketListener {
 

@@ -9,6 +9,10 @@ public enum ImmersiveConfig {
 
     WORLD_DAY_LENGTH("world.day-length", "24000"),
 
+    CHUNK_X_AXIS("chunk.x-axis", "16"),
+    CHUNK_Y_AXIS("chunk.y-axis", "256"),
+    CHUNK_Z_AXIS("chunk.z-axis", "16"),
+
     COMMAND_UNKNOWN("command.unknown", "Unknown command \"%cmd%\", type \"help\" for a list of commands."),
     COMMAND_USAGE("command.usage", "Usage: /%cmd% %args% - %desc%"),
     COMMAND_NO_ACCESS("command.no-access", "No access."),

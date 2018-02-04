@@ -1,21 +1,17 @@
 package io.immersive.world.position;
 
 import io.immersive.world.World;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
 
+@AllArgsConstructor
 public class Location {
     @Getter private final Coordinates coordinates;
     @Getter private final World world;
 
-    public Location(@NonNull final Coordinates coordinates, @NonNull final World world) {
-        this.coordinates = coordinates;
-        this.world = world;
-    }
-
     public Location(@NonNull final double x, @NonNull final double y, @NonNull final double z, @NonNull final World world) {
-        this.coordinates = new Coordinates(x, y, z);
-        this.world = world;
+        this(new Coordinates(x, y, z), world);
     }
 
     public double getX() {

@@ -1,4 +1,4 @@
-package io.immersive.event.events.player;
+package io.immersive.event.events.player.connection;
 
 import io.immersive.event.Event;
 import lombok.Getter;

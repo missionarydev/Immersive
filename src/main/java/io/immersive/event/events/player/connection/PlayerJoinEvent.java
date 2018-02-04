@@ -1,7 +1,7 @@
-package io.immersive.event.events.player;
+package io.immersive.event.events.player.connection;
 
-import io.immersive.event.Event;
 import io.immersive.entity.Player;
+import io.immersive.event.Event;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

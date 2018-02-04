@@ -1,14 +1,14 @@
 package io.immersive.entity;
 
+import io.immersive.client.ClientConnection;
 import io.immersive.commands.Sender;
-import io.immersive.event.events.player.PlayerTeleportEvent;
 import io.immersive.core.GameMode;
+import io.immersive.event.events.player.connection.PlayerTeleportEvent;
 import io.immersive.inventory.InventoryOwner;
 import io.immersive.inventory.PlayerInventory;
 import io.immersive.permissions.IPermissible;
 import io.immersive.permissions.Permissible;
 import io.immersive.permissions.Permission;
-import io.immersive.world.World;
 import io.immersive.world.position.Position;
 import lombok.Getter;
 import lombok.NonNull;
@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.UUID;
 
 public class Player implements Entity, Sender, InventoryOwner {
+    @Getter private final ClientConnection connection;
+
     @Getter private final UUID uuid;
     @Getter private final String name;
     @Getter private Position position;
@@ -30,6 +32,8 @@ public class Player implements Entity, Sender, InventoryOwner {
     @Getter @Setter private IPermissible permissible;
 
     public Player(@NonNull final UUID uuid, @NonNull final String name) {
+        this.connection = null;
+
         this.uuid = uuid;
         this.name = name;
         this.position = new Position(0, 120, 0, null, 0, 0);
