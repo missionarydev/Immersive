@@ -6,6 +6,7 @@ import lombok.NonNull;
 public enum ImmersiveConfig {
     SERVER_NAME("server.name", "Immersive"),
     SERVER_TPS("server.tps", "20.0"),
+    SERVER_VERSION("server.version", "5"),
 
     WORLD_DAY_LENGTH("world.day-length", "24000"),
 

@@ -64,8 +64,36 @@
                 <configuration>
                     <relocations>
                         <relocation>
+                            <pattern>io.netty</pattern>
+                            <shadedPattern>${project.groupId}.shaded.io.netty</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.fusesource</pattern>
+                            <shadedPattern>${project.groupId}.shaded.org.fusesource</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.codehaus</pattern>
+                            <shadedPattern>${project.groupId}.shaded.org.fusesource</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.checkerframework</pattern>
+                            <shadedPattern>${project.groupId}.shaded.org.fusesource</shadedPattern>
+                        </relocation>
+                        <relocation>
                             <pattern>org.jline</pattern>
                             <shadedPattern>${project.groupId}.shaded.org.jline</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>afu</pattern>
+                            <shadedPattern>${project.groupId}.shaded.afu</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.google</pattern>
+                            <shadedPattern>${project.groupId}.shaded.com.google</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>javax.annotation</pattern>
+                            <shadedPattern>${project.groupId}.shaded.javax.annotation</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -75,6 +103,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
             <version>1.17</version>
@@ -83,6 +116,11 @@
             <groupId>org.jline</groupId>
             <artifactId>jline</artifactId>
             <version>3.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
