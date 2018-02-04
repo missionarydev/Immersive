@@ -1,0 +1,42 @@
+# Maven
+dependency-reduced-pom.xml
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Mac
+/.DS_Store
+*.DS_Store
+
+# Linux
+*~
+
+# VIM
+.*.sw[a-p]
+
+# Eclipse
+/.classpath
+/.project
+/.settings
+/bin
+
+# Node
+node_modules/
+.env
+yarn.lock
+package-lock.json
+
+# Extra Files
+todo.txt
+target/
+bin/
+dist/
+manifest.mf
+.immersive/
+
+run\.bat
+
+run\.sh
