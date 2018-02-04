@@ -12,7 +12,10 @@ public enum ImmersiveConfig {
     COMMAND_UNKNOWN("command.unknown", "Unknown command \"%cmd%\", type \"help\" for a list of commands."),
     COMMAND_USAGE("command.usage", "Usage: /%cmd% %args% - %desc%"),
     COMMAND_NO_ACCESS("command.no-access", "No access."),
-    COMMAND_NO_PERMISSION("command.no-permission", "No permission.");
+    COMMAND_NO_PERMISSION("command.no-permission", "No permission."),
+    COMMAND_INVALID_PLAYER("command.invalid-player", "That player is invalid."),
+
+    COMMAND_DEF_GAMEMODE_INVALID("command.def.gamemode.invalid", "That gamemode is invalid.");
 
     @Getter private final String key;
     @Getter private final String value;

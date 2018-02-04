@@ -2,10 +2,7 @@ package io.immersive.commands;
 
 import io.immersive.Immersive;
 import io.immersive.ImmersiveConfig;
-import io.immersive.commands.defaults.HelpCommand;
-import io.immersive.commands.defaults.PluginsCommand;
-import io.immersive.commands.defaults.StopCommand;
-import io.immersive.commands.defaults.VersionCommand;
+import io.immersive.commands.defaults.*;
 import io.immersive.entity.Player;
 import io.immersive.server.Console;
 import lombok.Getter;
@@ -24,6 +21,7 @@ public class CommandManager {
         this.commands.add(new PluginsCommand());
         this.commands.add(new StopCommand());
         this.commands.add(new VersionCommand());
+        this.commands.add(new GamemodeCommand());
     }
 
     public Command checkCommand(@NonNull final String label) {

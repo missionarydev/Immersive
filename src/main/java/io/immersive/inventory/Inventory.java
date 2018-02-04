@@ -1,6 +1,6 @@
 package io.immersive.inventory;
 
-import io.immersive.item.ItemStack;
+import io.immersive.inventory.item.ItemStack;
 import lombok.Getter;
 
 import java.util.HashMap;

@@ -5,6 +5,7 @@ import io.immersive.commands.CommandManager;
 import io.immersive.event.EventManager;
 import io.immersive.entity.Player;
 import io.immersive.plugins.PluginManager;
+import io.immersive.scoreboard.ScoreboardManager;
 import io.immersive.utils.Directories;
 import io.immersive.utils.PerformanceUtils;
 import lombok.Getter;
@@ -23,20 +24,15 @@ public class Server {
     @Getter private final Console console;
 
     // Managers
-    @Getter private final EventManager eventManager;
-    @Getter private final CommandManager commandManager;
-    @Getter private final PluginManager pluginManager;
+    @Getter private ScoreboardManager scoreboardManager;
+    @Getter private EventManager eventManager;
+    @Getter private CommandManager commandManager;
+    @Getter private PluginManager pluginManager;
 
     // Terminal
-    @Getter private final TerminalThread terminalThread;
+    @Getter private TerminalThread terminalThread;
 
     public Server() {
-        // Printing out a start message.
-        System.out.println("Starting Immersive Server..");
-        System.out.println("Copyright (c) 2017-2018, Matthew Penner");
-        System.out.println("All rights reserved.");
-        System.out.println();
-
         // Creating Directories
         Directories.createDirectories();
 
@@ -46,6 +42,14 @@ public class Server {
         // Instating "Other"
         this.players = new HashMap<>();
         this.console = new Console();
+    }
+
+    public void start() {
+        // Printing out a start message.
+        System.out.println("Starting Immersive Server..");
+        System.out.println("Copyright (c) 2017-2018, Matthew Penner");
+        System.out.println("All rights reserved.");
+        System.out.println();
 
         final long startTime = System.currentTimeMillis();
 
@@ -59,6 +63,7 @@ public class Server {
         Immersive.getLogger().info("Loading settings.");
 
         // Instating Managers
+        this.scoreboardManager = new ScoreboardManager();
         this.eventManager = new EventManager();
         this.commandManager = new CommandManager();
         this.pluginManager = new PluginManager();
@@ -87,6 +92,10 @@ public class Server {
 
     public Player getPlayer(@NonNull final String identifier) {
         return this.getPlayers().get(identifier);
+    }
+
+    public Player getPlayerByName(@NonNull final String name) {
+        return this.getPlayers().values().stream().filter(player -> player.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
     }
 
     public Collection<Player> getOnlinePlayers() {

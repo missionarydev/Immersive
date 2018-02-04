@@ -20,6 +20,12 @@ public interface IPermissible {
      * Removes a permission from the Permissible
      * @param permission Permission to remove
      */
+    void removePermission(final Permission permission);
+
+    /**
+     * Removes a permission from the Permissible
+     * @param permission Permission to remove
+     */
     void removePermission(final AppliedPermission permission);
 
     /**

@@ -1,4 +1,4 @@
-package io.immersive.item;
+package io.immersive.inventory.item;
 
 public enum Material {
     STONE(),

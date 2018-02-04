@@ -3,17 +3,19 @@ package io.immersive.core;
 import lombok.Getter;
 import lombok.NonNull;
 
+import java.util.Arrays;
+import java.util.List;
+
 public enum GameMode {
-    ADVENTURE("&6Adventure", 0),
-    SURVIVAL("&cSurvival", 1),
-    CREATIVE("&aCreative", 2),
-    SPECTATOR("&7Spectator", 3);
+    ADVENTURE("&6Adventure", Arrays.asList("adventure", "a", "0")),
+    CREATIVE("&aCreative", Arrays.asList("creative", "c", "1")),
+    SURVIVAL("&cSurvival", Arrays.asList("survival", "s", "2"));
 
     @Getter private final String displayName;
-    @Getter private final int level;
+    @Getter private final List<String> aliases;
 
-    GameMode(@NonNull final String displayName, @NonNull final int level) {
+    GameMode(@NonNull final String displayName, @NonNull final List<String> aliases) {
         this.displayName = displayName;
-        this.level = level;
+        this.aliases = aliases;
     }
 }

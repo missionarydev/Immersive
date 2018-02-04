@@ -21,6 +21,10 @@ public class Permissible implements IPermissible {
         this.getPermissions().remove(node);
     }
 
+    public void removePermission(@NonNull final Permission permission) {
+        this.removePermission(permission.getNode());
+    }
+
     public void removePermission(@NonNull final AppliedPermission permission) {
         this.removePermission(permission.getNode());
     }

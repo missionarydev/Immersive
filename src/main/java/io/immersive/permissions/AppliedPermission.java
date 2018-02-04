@@ -21,8 +21,4 @@ public class AppliedPermission {
     public String getNode() {
         return this.getPermission().getNode();
     }
-
-    public Tristate getDefaultValue() {
-        return this.getPermission().getDefaultValue();
-    }
 }

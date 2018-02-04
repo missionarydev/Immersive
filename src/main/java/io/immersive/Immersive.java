@@ -29,5 +29,6 @@ public class Immersive {
 
         logger = Logger.getLogger("Immersive");
         server = new Server();
+        server.start();
     }
 }

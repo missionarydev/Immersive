@@ -14,7 +14,7 @@ public class Permission {
     @Getter @Setter private Tristate defaultValue;
 
     public Permission(@NonNull final String node, @NonNull final Tristate defaultValue) {
-        this.node = node;
+        this.node = node.toLowerCase();
         this.defaultValue = defaultValue;
     }
 

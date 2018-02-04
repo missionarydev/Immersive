@@ -32,7 +32,7 @@ public class Player implements Entity, Sender, InventoryOwner {
     public Player(@NonNull final UUID uuid, @NonNull final String name) {
         this.uuid = uuid;
         this.name = name;
-        this.position = new Position(0, 120, 0, new World(), 0, 0);
+        this.position = new Position(0, 120, 0, null, 0, 0);
         this.health = 20;
         this.hunger = 20;
         this.gameMode = GameMode.SURVIVAL;
