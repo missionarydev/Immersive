@@ -60,7 +60,7 @@ public class Server {
         } catch(InterruptedException ignored) { }
 
         // Loading the server
-        Immersive.getLogger().info("Starting server.. (git-Immersive-0929451b)");
+        Immersive.getLogger().info("Starting server.. (" + Immersive.VERSION + ")");
         Immersive.getLogger().info("Loading settings.");
 
         // Instating Managers

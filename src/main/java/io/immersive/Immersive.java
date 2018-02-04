@@ -5,10 +5,13 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 
 import java.io.IOException;
+import java.util.Properties;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class Immersive {
+    public static String VERSION = "";
+
     @Getter private static Logger logger;
     @Getter private static Server server;
 
@@ -25,6 +28,10 @@ public class Immersive {
 
     @SneakyThrows(IOException.class)
     private Immersive() {
+        final Properties properties = new Properties();
+        properties.load(this.getClass().getClassLoader().getResourceAsStream("info.properties"));
+        VERSION = "git-Immersive-" + properties.getProperty("git.commit.id.abbrev");
+
         LogManager.getLogManager().readConfiguration(this.getClass().getClassLoader().getResourceAsStream("logging.properties"));
 
         logger = Logger.getLogger("Immersive");

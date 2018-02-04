@@ -1,5 +1,6 @@
 package io.immersive.commands.defaults;
 
+import io.immersive.Immersive;
 import io.immersive.commands.Command;
 import io.immersive.commands.Sender;
 
@@ -13,7 +14,7 @@ public class VersionCommand extends Command {
     }
 
     public void onCommand(final Sender sender, final String label, final List<String> args) {
-        sender.sendMessage("This server is running Immersive. (git-Immersive-0929451b)");
+        sender.sendMessage("This server is running Immersive. (" + Immersive.VERSION + ")");
         sender.sendMessage("This is an alpha build, this should only be ran in development.");
     }
 }
