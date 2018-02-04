@@ -12,6 +12,7 @@ import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -99,7 +100,7 @@ public class Server {
     }
 
     public Collection<Player> getOnlinePlayers() {
-        return this.getPlayers().values();
+        return Collections.unmodifiableCollection(this.getPlayers().values());
     }
 
     public String getUsedMemory() {
