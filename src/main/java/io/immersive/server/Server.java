@@ -15,7 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,8 +30,9 @@ public class Server {
     @Getter private CommandManager commandManager;
     @Getter private PluginManager pluginManager;
 
-    // Terminal
+    // Threads
     @Getter private TerminalThread terminalThread;
+    @Getter private final Thread loggerThread;
 
     public Server() {
         // Creating Directories
@@ -39,6 +40,11 @@ public class Server {
 
         // Enabling jline debug logs
         Logger.getLogger("org.jline").setLevel(Level.ALL);
+
+        // Start logging thread
+        loggerThread = new Thread(new io.immersive.utils.Logger());
+        loggerThread.setName("Immersive-Logger-Thread");
+        loggerThread.start();
 
         // Instating "Other"
         this.players = new HashMap<>();
@@ -83,7 +89,7 @@ public class Server {
 
         this.getPluginManager().disablePlugins();
         Immersive.getLogger().info("Server stopped.");
-
+        io.immersive.utils.Logger.ALLOW_RUN = false;
         System.exit(0);
     }
 

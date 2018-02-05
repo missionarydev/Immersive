@@ -9,13 +9,20 @@ import org.fusesource.jansi.Ansi;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.EnumMap;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 
-public class Logger extends Formatter {
-    @Getter private static final Color[] COLORS = Color.values();
-    @Getter private static final EnumMap<Color, String> REPLACEMENTS = new EnumMap<>(Color.class);
+public class Logger extends Formatter implements Runnable {
+
+    @Getter
+    private static final Color[] COLORS = Color.values();
+    @Getter
+    private static final EnumMap<Color, String> REPLACEMENTS = new EnumMap<>(Color.class);
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("hh:mm:ssaa");
+    public static volatile Queue<String> LOGGER_CACHE = new ConcurrentLinkedQueue<>();
+    public static volatile boolean ALLOW_RUN = true;
 
     static {
         // Colors 0-9
@@ -50,18 +57,23 @@ public class Logger extends Formatter {
     public String format(@NonNull final LogRecord record) {
         final String message = String.format("[%s %s]: %s\n", DATE_FORMAT.format(record.getMillis()), record.getLevel().getName(), record.getMessage());
 
-        appendToFile(message);
-
+        LOGGER_CACHE.add(message);
         return message;
     }
 
+    @Override
     @SneakyThrows(IOException.class)
-    public static void appendToFile(@NonNull final String display) {
+    public void run() {
         final FileWriter fw = new FileWriter(Directories.getLogsDirectory() + File.separator + "latest.log", true);
         final BufferedWriter bw = new BufferedWriter(fw);
         final PrintWriter out = new PrintWriter(bw);
-
-        out.print(display);
-        out.close();
+        while (ALLOW_RUN) {
+            while (!LOGGER_CACHE.isEmpty()) {
+                out.print(LOGGER_CACHE.poll());
+            }
+            out.close();
+        }
+        out.flush();
+        fw.close();
     }
 }
